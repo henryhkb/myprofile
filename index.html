@@ -1,295 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Henry Kofi Brandoh | Portfolio</title>
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700|Poppins:300,400,500,600,700"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Icons (Boxicons) -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-  <!-- Mobile Nav Toggle -->
-  <button type="button" class="mobile-nav-toggle d-xl-none">
-    <i class="icofont-navigation-menu"></i>
-  </button>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile text-center">
-        <img src="assets/img/henry.jpg" class="img-fluid rounded-circle" alt="Profile Image">
-        <h1 class="text-light mt-3"><a href="index.html">Henry Kofi Brandoh</a></h1>
-
-        <div class="social-links mt-3">
-          <a href="https://twitter.com/henrybranny" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://facebook.com/henrykofibrandoh" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://linkedin.com/in/henry-kofi-brandoh-4316b6138/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
+  <!-- ======= Header / Nav ======= -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">Henry Kofi Brandoh</span>
       </div>
 
-      <nav class="nav-menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <i class="bx bx-menu"></i>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
         <ul>
-          <li class="active"><a href="#hero"><i class="bx bx-home"></i> Home</a></li>
-          <li><a href="#summary"><i class="bx bx-user"></i> Summary</a></li>
-          <li><a href="#skills"><i class="bx bx-code-block"></i> Skills</a></li>
-          <li><a href="#work"><i class="bx bx-briefcase"></i> Work Experience</a></li>
-          <li><a href="#research"><i class="bx bx-brain"></i> Research</a></li>
-          <li><a href="#projects"><i class="bx bx-server"></i> Projects</a></li>
-          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#summary">Summary</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
     </div>
   </header>
-  <!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1 class="fw-bold">Henry Kofi Brandoh</h1>
-      <p>I'm a <span class="typed"
-          data-typed-items="Software Developer, IT Manager, Penetration Tester, AI & Healthcare Researcher"></span>
-      </p>
+  <!-- ======= Hero ======= -->
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="hero-tag">Software Developer · IT Manager · AI & Healthcare Researcher</p>
+        <h1 class="hero-title">Hi, I'm <span>Henry Kofi Brandoh</span></h1>
+        <p class="hero-subtitle">
+          I build secure web applications, manage hospital IT infrastructure, and explore AI solutions
+          that improve healthcare delivery and early disease detection.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn ghost">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-avatar">
+          <!-- Use your existing image -->
+          <img src="assets/img/henry.jpg" alt="Henry Kofi Brandoh">
+        </div>
+        <div class="hero-card-body">
+          <h2>IT Manager, Korle Bu Teaching Hospital</h2>
+          <p>Focused on digital transformation, clinical systems, and secure, reliable infrastructure.</p>
+          <div class="hero-socials">
+            <a href="https://twitter.com/henrybranny" target="_blank"><i class="bx bxl-twitter"></i></a>
+            <a href="https://facebook.com/henrykofibrandoh" target="_blank"><i class="bx bxl-facebook"></i></a>
+            <a href="https://linkedin.com/in/henry-kofi-brandoh-4316b6138" target="_blank"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-  <!-- End Hero -->
 
-  <main id="main">
+  <main>
 
-    <!-- ======= Professional Summary ======= -->
-    <section id="summary" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
+    <!-- ======= Summary ======= -->
+    <section id="summary" class="section">
+      <div class="container">
+        <div class="section-header">
           <h2>Professional Summary</h2>
         </div>
-
-        <p style="font-size: 17px;">
-          I am a passionate Software Developer, IT Manager, and emerging AI Researcher focused on applying technology to
-          solve real-world problems — especially in healthcare. With experience building scalable web applications,
-          leading digital transformation at Korle Bu Teaching Hospital, and developing AI-powered medical tools, I
-          combine software engineering expertise with strong analytical thinking and innovation.
-          <br><br>
-          I am skilled in PHP, Laravel, Python, Java, MySQL, Machine Learning, and cybersecurity, and I enjoy creating
-          solutions that improve clinical workflows, enhance decision-making, and deliver meaningful impact.
-        </p>
-
+        <div class="two-column">
+          <div>
+            <p>
+              I am a passionate Software Developer, IT Manager, and emerging AI Researcher focused on applying technology
+              to solve real-world problems, especially in healthcare. My work spans building scalable web applications,
+              managing mission-critical hospital IT systems, and designing AI-powered tools that support doctors and
+              improve patient outcomes.
+            </p>
+            <p>
+              I am skilled in PHP, Laravel, Python, Java, MySQL, cybersecurity, and machine learning. I enjoy working
+              closely with stakeholders to understand problems deeply and then translating those requirements into
+              reliable, secure, and user-friendly solutions.
+            </p>
+          </div>
+          <div class="summary-card">
+            <h3>Quick Info</h3>
+            <ul>
+              <li><span>Location:</span> Accra, Ghana</li>
+              <li><span>Role:</span> IT Manager & Software Developer</li>
+              <li><span>Focus Areas:</span> Web Apps, Security, AI for Healthcare</li>
+              <li><span>Freelance:</span> Available</li>
+              <li><span>Email:</span> brandohhenry@gmail.com</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
-    <!-- End Summary -->
 
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
+    <!-- ======= Skills ======= -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
           <h2>Programming Languages & Skills</h2>
         </div>
 
-        <div class="row">
-
-          <div class="col-lg-6">
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Backend & Web</h3>
             <ul>
-              <li><strong>PHP</strong> — Advanced</li>
-              <li><strong>Laravel</strong> — Advanced</li>
-              <li><strong>HTML & CSS</strong> — Advanced</li>
-              <li><strong>MySQL</strong> — Advanced</li>
+              <li><strong>PHP</strong> (Advanced)</li>
+              <li><strong>Laravel</strong> (Advanced)</li>
+              <li><strong>MySQL</strong> (Advanced)</li>
+              <li><strong>HTML &amp; CSS</strong> (Advanced)</li>
             </ul>
           </div>
 
-          <div class="col-lg-6">
+          <div class="skill-card">
+            <h3>Programming & AI</h3>
             <ul>
-              <li><strong>Java</strong> — Intermediate</li>
-              <li><strong>Python</strong> — Intermediate</li>
-              <li><strong>Machine Learning</strong> — Intermediate</li>
-              <li><strong>Algorithms & Data Structures</strong> — Strong</li>
+              <li><strong>Java</strong> (Intermediate)</li>
+              <li><strong>Python</strong> (Intermediate)</li>
+              <li><strong>Machine Learning</strong> (Intermediate)</li>
+              <li><strong>Algorithms &amp; Data Structures</strong> (Strong)</li>
             </ul>
           </div>
 
+          <div class="skill-card">
+            <h3>Other Skills</h3>
+            <ul>
+              <li>Website & Web Application Security</li>
+              <li>Linux, Git, REST APIs</li>
+              <li>Systems Administration</li>
+              <li>Digital Transformation in Healthcare</li>
+            </ul>
+          </div>
         </div>
-
       </div>
     </section>
-    <!-- End Skills -->
 
-    <!-- ======= Work Experience ======= -->
-    <section id="work" class="services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
+    <!-- ======= Experience ======= -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
           <h2>Work Experience</h2>
         </div>
 
-        <div class="row">
+        <div class="timeline">
 
-          <!-- OrPasser -->
-          <div class="col-lg-6 icon-box">
-            <div class="icon"><i class="icofont-computer"></i></div>
-            <h4 class="title">CEO & Software Developer | OrPasser</h4>
-            <h5>February 2023 – November 2024</h5>
-            <ul class="description">
-              <li>Built OrPasser using Laravel, Bootstrap, and MySQL.</li>
-              <li>Integrated MTN MoMo Collections & Escrow Payment APIs.</li>
-              <li>Developed trip logic, pricing models, and organizer workflows.</li>
-              <li>Designed the user interface and improved user experience.</li>
-              <li>Managed product strategy, branding, and platform deployment.</li>
-              <li>Implemented authentication, APIs, and secure backend systems.</li>
-            </ul>
-          </div>
+          <!-- Orpasser -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>CEO &amp; Software Developer &mdash; Orpasser (Startup)</h3>
+              <p class="timeline-period">February 2023 &ndash; November 2024</p>
+              <p class="timeline-summary">
+                Orpasser is a web platform that connects trip organizers and travelers, making it easier to plan, manage,
+                and coordinate bus trips for events, churches, and organizations.
+              </p>
+              <ul>
+                <li>Designed and implemented the entire Orpasser platform using Laravel, Bootstrap, and MySQL.</li>
+                <li>Developed core business logic for trip creation, booking flows, pricing models and sponsor vs passenger payments.</li>
+                <li>Integrated MTN MoMo Collections and Escrow APIs for secure, automated payments and disbursements.</li>
+                <li>Built responsive, mobile-friendly interfaces and optimized the overall user experience.</li>
+                <li>Managed deployments, server configuration, and continuous updates based on early user feedback.</li>
+                <li>Led product direction, branding, and communication with organizers to refine features.</li>
+              </ul>
+            </div>
+          </article>
 
-          <!-- Hospital -->
-          <div class="col-lg-6 icon-box">
-            <div class="icon"><i class="icofont-hospital"></i></div>
-            <h4 class="title">IT Manager | Korle Bu Teaching Hospital</h4>
-            <h5>October 2023 – Present</h5>
-            <ul class="description">
-              <li>Manage hospital networks, servers, electronic health systems, and IT infrastructure.</li>
-              <li>Lead digital transformation initiatives across administrative and clinical units.</li>
-              <li>Ensure cybersecurity, data protection, and compliance with medical IT standards.</li>
-              <li>Provide technical support to doctors, nurses, and staff.</li>
-              <li>Oversee installation and maintenance of clinical software and lab systems.</li>
-              <li>Implement backup, disaster recovery, and system uptime strategies.</li>
-            </ul>
-          </div>
+          <!-- Korle Bu -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>IT Manager &mdash; Korle Bu Teaching Hospital</h3>
+              <p class="timeline-period">October 2023 &ndash; Present</p>
+              <p class="timeline-summary">
+                Overseeing critical IT operations and supporting digital transformation in one of Ghana’s major hospitals.
+              </p>
+              <ul>
+                <li>Manage hospital IT infrastructure, including networks, servers, workstations, and clinical systems.</li>
+                <li>Support Electronic Health Record (EHR) and related systems, ensuring seamless data flow between units.</li>
+                <li>Implement and monitor cybersecurity measures to protect patient data and sensitive hospital information.</li>
+                <li>Provide technical support to doctors, nurses, and administrative staff for day-to-day clinical operations.</li>
+                <li>Coordinate installation, configuration, and maintenance of medical and administrative software.</li>
+                <li>Design backup, recovery, and uptime strategies to keep critical systems running reliably.</li>
+              </ul>
+            </div>
+          </article>
 
         </div>
-
       </div>
     </section>
-    <!-- End Work -->
 
-    <!-- ======= Research Section ======= -->
-    <section id="research" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
+    <!-- ======= Research ======= -->
+    <section id="research" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
           <h2>Ongoing Research Projects</h2>
         </div>
 
-        <div class="row">
-
-          <div class="col-lg-6 icon-box">
-            <div class="icon"><i class="bx bx-brain"></i></div>
-            <h4 class="title">AR/VR Cognitive Enhancement for Autistic Patients</h4>
-            <p class="description">Using augmented and virtual reality to improve cognitive intelligence, emotional
-              recognition, and communication skills in autistic individuals.</p>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>AR/VR for Autistic Patients</h3>
+            <p>
+              Exploring how Augmented and Virtual Reality can be used to improve cognitive intelligence, communication,
+              and emotional recognition in autistic patients.
+            </p>
+            <ul>
+              <li>Designing realistic, controlled virtual environments for practicing real-world interactions.</li>
+              <li>Using AI to adapt difficulty levels and monitor engagement over time.</li>
+              <li>Planning therapist and guardian dashboards for progress tracking.</li>
+            </ul>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Unity/Unreal, Python, OpenCV, VR Headsets, LLM-based assistants</p>
           </div>
 
-          <div class="col-lg-6 icon-box">
-            <div class="icon"><i class="bx bx-line-chart"></i></div>
-            <h4 class="title">Machine Learning for Early Breast Cancer Detection</h4>
-            <p class="description">Developing a machine learning model for early identification of breast cancer through
-              predictive analytics and pattern detection.</p>
+          <div class="card">
+            <h3>Machine Learning for Early Breast Cancer Detection</h3>
+            <p>
+              Building ML models to support early detection and risk prediction for breast cancer using clinical data and
+              imaging features.
+            </p>
+            <ul>
+              <li>Experimenting with classification models for risk estimation.</li>
+              <li>Focusing on model interpretability so doctors can understand predictions.</li>
+              <li>Exploring integration approaches with hospital workflows and systems.</li>
+            </ul>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Python, TensorFlow/PyTorch, Scikit-Learn, Pandas, NumPy</p>
           </div>
-
         </div>
-
       </div>
     </section>
-    <!-- End Research -->
 
-    <!-- ======= Projects Section ======= -->
-    <section id="projects" class="services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
+    <!-- ======= Projects ======= -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
           <h2>Featured Projects</h2>
         </div>
 
-        <div class="row">
+        <div class="cards-grid">
 
-          <!-- 3D Model Project -->
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bx bx-cube"></i></div>
-            <h4 class="title">3D Medical Visualization for Doctors</h4>
-            <p class="description">
-              A 3D platform for exploring organs and procedures using interactive WebGL models.
+          <div class="card">
+            <h3>3D Medical Visualization for Doctors</h3>
+            <p>
+              A web-based 3D visualization system that allows doctors to explore anatomical structures, rotate organs,
+              zoom into regions of interest, and use visual context to better understand procedures.
             </p>
-            <p><strong>Tech Stack:</strong> Three.js, Babylon.js, WebGL, Python API</p>
+            <ul>
+              <li>Interactive 3D organ models (e.g., appendix, liver, heart).</li>
+              <li>Annotations and labels for key structures and clinical landmarks.</li>
+              <li>Designed to complement learning and pre-procedure planning.</li>
+            </ul>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Three.js / Babylon.js, WebGL, JavaScript, REST API backend</p>
           </div>
 
-          <!-- AI Triage -->
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bx bx-health"></i></div>
-            <h4 class="title">AI Medical Triage System</h4>
-            <p class="description">
-              AI tool that analyzes patient symptoms, detects severity, and suggests possible conditions.
+          <div class="card">
+            <h3>AI Medical Triage</h3>
+            <p>
+              An AI-powered triage system that analyzes patient symptoms and suggests possible conditions with urgency
+              levels to support faster clinical decision-making.
             </p>
-            <p><strong>Tech Stack:</strong> Python (FastAPI), LLM, MySQL, React/Laravel</p>
+            <ul>
+              <li>Symptom input interface for capturing patient complaints.</li>
+              <li>AI-based suggestions for potential diagnoses and red flags.</li>
+              <li>Outputs urgency levels such as Emergency, Urgent, or Routine.</li>
+            </ul>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Python (FastAPI), LLM models, MySQL/PostgreSQL, Web frontend (Laravel/React)</p>
           </div>
 
-          <!-- AI Summary -->
-          <div class="col-lg-4 col-md-6 icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4 class="title">AI Medical Summary Generator</h4>
-            <p class="description">
-              AI system that produces SOAP-style medical summaries from long patient notes.
+          <div class="card">
+            <h3>AI Medical Summary</h3>
+            <p>
+              A summarization tool that converts long clinical notes and patient histories into clear, concise summaries
+              formatted for quick review by doctors.
             </p>
-            <p><strong>Tech Stack:</strong> Python, LLM Summarizers, REST API, MySQL</p>
+            <ul>
+              <li>Generates SOAP-style summaries (Subjective, Objective, Assessment, Plan).</li>
+              <li>Highlights key findings, lab abnormalities, and treatment plans.</li>
+              <li>Designed to integrate with hospital systems for case reviews and ward rounds.</li>
+            </ul>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Python, LLM summarization models, REST API, MySQL/MongoDB</p>
           </div>
 
         </div>
-
       </div>
     </section>
-    <!-- End Projects -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
-      <div class="container text-center" data-aos="fade-up">
-
-        <div class="section-title">
+    <!-- ======= Contact ======= -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
           <h2>Contact</h2>
         </div>
 
-        <p><strong>Email:</strong> brandohhenry@gmail.com</p>
-        <p><strong>Phone:</strong> +233 57 678 7603</p>
-        <p><strong>Twitter:</strong> @henrybranny</p>
-        <p><strong>LinkedIn:</strong> Henry Kofi Brandoh</p>
-        <p><strong>Facebook:</strong> Henry Kofi Brandoh</p>
+        <div class="contact-grid">
+          <div class="contact-block">
+            <h3>Get in touch</h3>
+            <p>
+              I’m open to collaborations, research opportunities, freelance projects, and roles in software engineering,
+              AI, and healthcare technology.
+            </p>
+          </div>
+          <div class="contact-block contact-details">
+            <ul>
+              <li><i class="bx bx-envelope"></i> <span>Email:</span> brandohhenry@gmail.com</li>
+              <li><i class="bx bx-phone"></i> <span>Phone:</span> +233 57 678 7603</li>
+              <li><i class="bx bxl-twitter"></i> <span>Twitter:</span> @henrybranny</li>
+              <li><i class="bx bxl-linkedin"></i> <span>LinkedIn:</span> Henry Kofi Brandoh</li>
+              <li><i class="bx bxl-facebook"></i> <span>Facebook:</span> Henry Kofi Brandoh</li>
+            </ul>
+          </div>
+        </div>
 
       </div>
     </section>
-    <!-- End Contact -->
 
   </main>
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container text-center">
-      <p>&copy; <strong>Henry Kofi Brandoh</strong></p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> <strong>Henry Kofi Brandoh</strong>. All rights reserved.</p>
     </div>
   </footer>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <!-- Small JS for mobile nav + year -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const siteNav = document.getElementById('siteNav');
+    navToggle.addEventListener('click', () => {
+      siteNav.classList.toggle('nav-open');
+    });
 
-  <!-- JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/js/main.js"></script>
-
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

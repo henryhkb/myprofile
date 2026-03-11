@@ -3,351 +3,774 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Henry Kofi Brandoh | Portfolio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Icons (Boxicons) -->
+  <title>Henry Kofi Brandoh | Software Engineer & Healthcare Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+    :root {
+      --blue: #1A56DB;
+      --blue-light: #EBF4FF;
+      --blue-mid: #3B82F6;
+      --dark: #0F172A;
+      --mid: #334155;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --white: #ffffff;
+      --bg: #F8FAFC;
+      --accent: #0EA5E9;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--dark); text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--mid); font-size: 0.875rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: white; padding: 0.5rem 1.25rem;
+      border-radius: 6px; font-size: 0.875rem; font-weight: 500;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #1744c0; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0F172A 0%, #1e3a5f 50%, #0F172A 100%);
+      display: flex; align-items: center;
+      padding: 6rem 2rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(26,86,219,0.25) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(var(--blue) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--blue) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(26,86,219,0.3); border: 1px solid rgba(59,130,246,0.4);
+      color: #93C5FD; padding: 0.35rem 1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      color: white; line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: #60A5FA; font-style: italic; }
+    .hero-desc {
+      color: #94A3B8; font-size: 1.05rem; line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue); color: white; padding: 0.75rem 1.75rem;
+      border-radius: 8px; font-weight: 600; text-decoration: none;
+      font-size: 0.95rem; transition: all 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { background: #1744c0; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: white; padding: 0.75rem 1.75rem;
+      border-radius: 8px; font-weight: 500; text-decoration: none;
+      font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+    /* Hero Card */
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 2.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .hero-card-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: var(--blue); display: flex; align-items: center; justify-content: center;
+      font-size: 2.25rem; color: white; font-family: 'DM Serif Display', serif;
+      margin-bottom: 1.25rem;
+      border: 3px solid rgba(96,165,250,0.4);
+    }
+    .hero-card h2 { color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .hero-card p { color: #94A3B8; font-size: 0.875rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.5rem; font-weight: 700; color: #60A5FA; font-family: 'DM Serif Display', serif; }
+    .stat-label { font-size: 0.7rem; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero-socials { display: flex; gap: 0.75rem; }
+    .hero-socials a {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: #94A3B8; font-size: 1.1rem; text-decoration: none; transition: all 0.2s;
+    }
+    .hero-socials a:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 600; color: var(--blue);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem); color: var(--dark);
+      margin-bottom: 1rem; line-height: 1.2;
+    }
+    .section-desc { color: var(--muted); font-size: 1rem; max-width: 560px; line-height: 1.75; }
+    .divider { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; margin: 1rem 0 3rem; }
+
+    /* ── ABOUT / SUMMARY ── */
+    #about { background: white; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { color: var(--mid); line-height: 1.8; margin-bottom: 1rem; font-size: 0.975rem; }
+    .info-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem;
+    }
+    .info-card h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--blue); margin-bottom: 1.25rem; }
+    .info-list { list-style: none; }
+    .info-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem;
+    }
+    .info-list li:last-child { border-bottom: none; }
+    .info-list .label { color: var(--muted); min-width: 80px; font-size: 0.8rem; }
+    .info-list .val { color: var(--dark); font-weight: 500; }
+    .available-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #DCFCE7; color: #16A34A; padding: 0.2rem 0.75rem;
+      border-radius: 100px; font-size: 0.78rem; font-weight: 600;
+    }
+    .available-dot { width: 7px; height: 7px; background: #16A34A; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .skill-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { box-shadow: 0 8px 32px rgba(26,86,219,0.1); transform: translateY(-3px); }
+    .skill-icon {
+      width: 48px; height: 48px; background: var(--blue-light);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--blue); margin-bottom: 1.25rem;
+    }
+    .skill-card h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 1rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      background: var(--bg); border: 1px solid var(--border);
+      color: var(--mid); padding: 0.25rem 0.75rem;
+      border-radius: 100px; font-size: 0.78rem; font-weight: 500;
+    }
+    .tag.strong { background: var(--blue-light); border-color: #BFDBFE; color: var(--blue); }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: white; }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 3rem; }
+    .timeline-dot {
+      position: absolute; left: -2rem; top: 6px;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--blue); border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--blue);
+    }
+    .timeline-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem;
+      transition: box-shadow 0.2s;
+    }
+    .timeline-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .tl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem; }
+    .tl-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); }
+    .tl-period {
+      background: var(--blue-light); color: var(--blue);
+      padding: 0.2rem 0.75rem; border-radius: 100px; font-size: 0.78rem; font-weight: 600;
+    }
+    .tl-org { color: var(--blue); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.75rem; }
+    .tl-desc { color: var(--mid); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+    .tl-list { list-style: none; }
+    .tl-list li {
+      display: flex; gap: 0.6rem; color: var(--mid); font-size: 0.875rem;
+      line-height: 1.6; margin-bottom: 0.4rem;
+    }
+    .tl-list li::before { content: '→'; color: var(--blue); flex-shrink: 0; font-weight: 600; }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--bg); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .project-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { box-shadow: 0 12px 40px rgba(26,86,219,0.1); transform: translateY(-4px); }
+    .project-top {
+      background: linear-gradient(135deg, #0F172A, #1e3a5f);
+      padding: 1.75rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .project-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: rgba(26,86,219,0.5); border: 1px solid rgba(96,165,250,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .project-top h3 { color: white; font-size: 1.05rem; font-weight: 700; }
+    .project-top p { color: #94A3B8; font-size: 0.8rem; margin-top: 0.2rem; }
+    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .project-body p { color: var(--mid); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1rem; flex: 1; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .project-footer { display: flex; gap: 0.75rem; }
+    .btn-sm {
+      padding: 0.4rem 1rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;
+    }
+    .btn-sm.outline {
+      border: 1px solid var(--border); color: var(--mid); background: transparent;
+    }
+    .btn-sm.outline:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-sm.filled { background: var(--blue); color: white; border: 1px solid var(--blue); }
+    .btn-sm.filled:hover { background: #1744c0; }
+
+    /* ── RESEARCH ── */
+    #research { background: white; }
+    .research-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .research-card {
+      border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem;
+      background: var(--bg); position: relative; overflow: hidden;
+    }
+    .research-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+    }
+    .research-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem; }
+    .research-card p { color: var(--mid); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1rem; }
+    .research-status {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #FEF3C7; color: #D97706; padding: 0.2rem 0.75rem;
+      border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    #contact .section-title { color: white; }
+    #contact .section-desc { color: #94A3B8; }
+    #contact .divider { background: var(--blue); }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 1rem 1.25rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-item:hover { background: rgba(26,86,219,0.2); border-color: rgba(26,86,219,0.4); }
+    .contact-item-icon {
+      width: 40px; height: 40px; background: rgba(26,86,219,0.3);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: #60A5FA; flex-shrink: 0;
+    }
+    .contact-item-text { flex: 1; }
+    .contact-item-label { font-size: 0.7rem; color: #64748B; text-transform: uppercase; letter-spacing: 0.06em; }
+    .contact-item-val { color: white; font-size: 0.9rem; font-weight: 500; }
+    .cv-download {
+      background: var(--blue); color: white; padding: 1rem 1.5rem;
+      border-radius: 12px; text-decoration: none; display: flex;
+      align-items: center; gap: 0.75rem; font-weight: 600; font-size: 0.95rem;
+      transition: background 0.2s; margin-top: 1rem;
+    }
+    .cv-download:hover { background: #1744c0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060f1e; padding: 1.5rem 2rem; text-align: center;
+      color: #475569; font-size: 0.85rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner, .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid, .research-grid { grid-template-columns: 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .stats-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ======= Header / Nav ======= -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <div class="logo">
-        <span class="logo-dot"></span>
-        <span class="logo-text">Henry Kofi Brandoh</span>
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Henry<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:brandohhenry@gmail.com" class="nav-cta">Hire Me</a>
+    <button class="hamburger" id="hamburger"><i class="bx bx-menu"></i></button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">🇬🇭 Software Engineer · IT Manager · AI Researcher</div>
+      <h1>Building tech that <span>matters</span> for healthcare & beyond</h1>
+      <p class="hero-desc">
+        I'm Henry — a software engineer and IT Manager at Korle Bu Teaching Hospital, Ghana's premier referral hospital. I build scalable web platforms, manage mission-critical systems, and research AI applications in medicine.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
       </div>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <i class="bx bx-menu"></i>
-      </button>
-
-      <nav class="site-nav" id="siteNav">
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#summary">Summary</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
     </div>
-  </header>
 
-  <!-- ======= Hero ======= -->
-  <section id="hero" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-text">
-        <p class="hero-tag">Software Developer · IT Manager · AI & Healthcare Researcher</p>
-        <h1 class="hero-title">Hi, I'm <span>Henry Kofi Brandoh</span></h1>
-        <p class="hero-subtitle">
-          I build secure web applications, manage hospital IT infrastructure, and explore AI solutions
-          that improve healthcare delivery and early disease detection.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn ghost">Contact Me</a>
+    <div class="hero-card">
+      <div class="hero-card-avatar">H</div>
+      <h2>Henry Kofi Brandoh</h2>
+      <p>IT Manager at Korle Bu Teaching Hospital · Founder of Orpasser · AI & Healthcare Technology Researcher</p>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years Exp</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Research</div>
         </div>
       </div>
-      <div class="hero-card">
-        <div class="hero-avatar">
-          <!-- Use your existing image -->
-          <img src="assets/img/henry.jpg" alt="Henry Kofi Brandoh">
+      <div class="hero-socials">
+        <a href="https://linkedin.com/in/henry-kofi-brandoh-2964b92a7" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://twitter.com/henrybranny" target="_blank"><i class="bx bxl-twitter"></i></a>
+        <a href="https://facebook.com/henrykofibrandoh" target="_blank"><i class="bx bxl-facebook"></i></a>
+        <a href="mailto:brandohhenry@gmail.com"><i class="bx bx-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">I build systems that people depend on</h2>
+        <div class="divider"></div>
+        <p>I'm a software engineer and IT Manager based in Accra, Ghana, with hands-on experience building real-world systems in healthcare, transport, and education. My day job is managing the IT infrastructure of <strong>Korle Bu Teaching Hospital</strong> — one of Ghana's largest and most critical hospitals.</p>
+        <p>On the product side, I founded <strong>Orpasser</strong>, a live web platform that connects trip organizers and travelers for group bus trips across Ghana, with full MTN MoMo payment integration.</p>
+        <p>I'm passionate about applying AI and machine learning to solve healthcare challenges — from early cancer detection to medical triage systems. I believe technology should create real, measurable impact.</p>
+      </div>
+      <div>
+        <div class="info-card">
+          <h3>Quick Info</h3>
+          <ul class="info-list">
+            <li><span class="label">Location</span><span class="val">Accra, Ghana 🇬🇭</span></li>
+            <li><span class="label">Current Role</span><span class="val">IT Manager, Korle Bu Teaching Hospital</span></li>
+            <li><span class="label">Startup</span><span class="val">Founder & CEO, Orpasser</span></li>
+            <li><span class="label">Focus</span><span class="val">Web Apps, AI for Healthcare, IT Infrastructure</span></li>
+            <li><span class="label">Email</span><span class="val">brandohhenry@gmail.com</span></li>
+            <li>
+              <span class="label">Status</span>
+              <span class="available-badge"><span class="available-dot"></span> Open to Remote Roles</span>
+            </li>
+          </ul>
         </div>
-        <div class="hero-card-body">
-          <h2>IT Manager, Korle Bu Teaching Hospital</h2>
-          <p>Focused on digital transformation, clinical systems, and secure, reliable infrastructure.</p>
-          <div class="hero-socials">
-            <a href="https://twitter.com/henrybranny" target="_blank"><i class="bx bxl-twitter"></i></a>
-            <a href="https://facebook.com/henrykofibrandoh" target="_blank"><i class="bx bxl-facebook"></i></a>
-            <a href="https://linkedin.com/in/henry-kofi-brandoh-4316b6138" target="_blank"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Technical Skills</div>
+    <h2 class="section-title">What I work with</h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon"><i class="bx bx-code-alt"></i></div>
+        <h3>Backend & Web</h3>
+        <div class="skill-tags">
+          <span class="tag strong">Laravel</span>
+          <span class="tag strong">PHP</span>
+          <span class="tag strong">MySQL</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">Tailwind</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="bx bx-brain"></i></div>
+        <h3>AI & Machine Learning</h3>
+        <div class="skill-tags">
+          <span class="tag strong">Python</span>
+          <span class="tag strong">TensorFlow</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">LLM Integration</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="bx bx-shield"></i></div>
+        <h3>IT & Infrastructure</h3>
+        <div class="skill-tags">
+          <span class="tag strong">Linux</span>
+          <span class="tag strong">Network Admin</span>
+          <span class="tag">EHR Systems</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Servers</span>
+          <span class="tag">Git/GitHub</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="bx bx-layer"></i></div>
+        <h3>Frontend & Mobile</h3>
+        <div class="skill-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">jQuery</span>
+          <span class="tag">React (Beginner)</span>
+          <span class="tag">Three.js</span>
+          <span class="tag">WebGL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="bx bx-credit-card"></i></div>
+        <h3>Integrations & APIs</h3>
+        <div class="skill-tags">
+          <span class="tag strong">MTN MoMo API</span>
+          <span class="tag">SMS/Email Automation</span>
+          <span class="tag">QR Ticketing</span>
+          <span class="tag">PDF Generation</span>
+          <span class="tag">Escrow Systems</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon"><i class="bx bx-cube-alt"></i></div>
+        <h3>Other Technologies</h3>
+        <div class="skill-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Unity/Unreal</span>
+          <span class="tag">AR/VR</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">HostGator/cPanel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Work Experience</div>
+    <h2 class="section-title">Where I've built & led</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">IT Manager</div>
+            <span class="tl-period">Oct 2023 – Present</span>
           </div>
+          <div class="tl-org">Korle Bu Teaching Hospital — Accra, Ghana</div>
+          <p class="tl-desc">Managing mission-critical IT infrastructure at Ghana's premier referral hospital, serving thousands of patients and hundreds of clinical staff daily.</p>
+          <ul class="tl-list">
+            <li>Manage hospital-wide IT infrastructure: servers, switches, Wi-Fi, workstations across wards, theatres, and OPD units</li>
+            <li>Built an internal Letter Tracking System eliminating manual paper workflows across all departments</li>
+            <li>Implement cybersecurity controls, access management, and backup strategies to protect sensitive patient data</li>
+            <li>Coordinate with government health IT teams and EHR vendors on system updates and compliance</li>
+            <li>Train medical and admin staff on digital systems, accelerating hospital-wide digital transformation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">CEO & Software Developer</div>
+            <span class="tl-period">Feb 2023 – Present</span>
+          </div>
+          <div class="tl-org">Orpasser — Transport Startup (Live Platform)</div>
+          <p class="tl-desc">Built and launched a live web platform connecting trip organizers and travelers for group bus trips across Ghana, with full payment integration.</p>
+          <ul class="tl-list">
+            <li>Architected the full platform using Laravel, Bootstrap, MySQL — trip creation, booking, dynamic pricing, and payment flows</li>
+            <li>Integrated MTN MoMo Collections and Escrow APIs for automated, secure payment processing</li>
+            <li>Built QR e-ticketing, SMS/Email notifications, and PDF ticket generation systems</li>
+            <li>Managed production deployments, server configuration, and iterative feature updates</li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <main>
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Featured Projects</div>
+    <h2 class="section-title">Things I've built</h2>
+    <div class="divider"></div>
+    <div class="projects-grid">
 
-    <!-- ======= Summary ======= -->
-    <section id="summary" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Professional Summary</h2>
-        </div>
-        <div class="two-column">
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🚌</div>
           <div>
-            <p>
-              I am a passionate Software Developer, IT Manager, and emerging AI Researcher focused on applying technology
-              to solve real-world problems, especially in healthcare. My work spans building scalable web applications,
-              managing mission-critical hospital IT systems, and designing AI-powered tools that support doctors and
-              improve patient outcomes.
-            </p>
-            <p>
-              I am skilled in PHP, Laravel, Python, Java, MySQL, cybersecurity, and machine learning. I enjoy working
-              closely with stakeholders to understand problems deeply and then translating those requirements into
-              reliable, secure, and user-friendly solutions.
-            </p>
+            <h3>Orpasser</h3>
+            <p>Live transport platform · Ghana</p>
           </div>
-          <div class="summary-card">
-            <h3>Quick Info</h3>
-            <ul>
-              <li><span>Location:</span> Accra, Ghana</li>
-              <li><span>Role:</span> IT Manager & Software Developer</li>
-              <li><span>Focus Areas:</span> Web Apps, Security, AI for Healthcare</li>
-              <li><span>Freelance:</span> Available</li>
-              <li><span>Email:</span> brandohhenry@gmail.com</li>
-            </ul>
+        </div>
+        <div class="project-body">
+          <p>A live web platform connecting trip organizers and travelers for group bus trips. Includes full booking flows, dynamic pricing, MTN MoMo payment integration, QR ticketing, and SMS/Email notifications.</p>
+          <div class="project-stack">
+            <span class="tag strong">Laravel</span>
+            <span class="tag strong">MTN MoMo API</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">QR Ticketing</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+          <div class="project-footer">
+            <a href="#contact" class="btn-sm filled"><i class="bx bx-link-external"></i> Live Platform</a>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ======= Skills ======= -->
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Programming Languages & Skills</h2>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h3>Backend & Web</h3>
-            <ul>
-              <li><strong>PHP</strong> (Advanced)</li>
-              <li><strong>Laravel</strong> (Advanced)</li>
-              <li><strong>MySQL</strong> (Advanced)</li>
-              <li><strong>HTML &amp; CSS</strong> (Advanced)</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3>Programming & AI</h3>
-            <ul>
-              <li><strong>Java</strong> (Intermediate)</li>
-              <li><strong>Python</strong> (Intermediate)</li>
-              <li><strong>Machine Learning</strong> (Intermediate)</li>
-              <li><strong>Algorithms &amp; Data Structures</strong> (Strong)</li>
-            </ul>
-          </div>
-
-          <div class="skill-card">
-            <h3>Other Skills</h3>
-            <ul>
-              <li>Website & Web Application Security</li>
-              <li>Linux, Git, REST APIs</li>
-              <li>Systems Administration</li>
-              <li>Digital Transformation in Healthcare</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Experience ======= -->
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Work Experience</h2>
-        </div>
-
-        <div class="timeline">
-
-          <!-- Orpasser -->
-          <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>CEO &amp; Software Developer &mdash; Orpasser (Startup)</h3>
-              <p class="timeline-period">February 2023 &ndash; November 2024</p>
-              <p class="timeline-summary">
-                Orpasser is a web platform that connects trip organizers and travelers, making it easier to plan, manage,
-                and coordinate bus trips for events, churches, and organizations.
-              </p>
-              <ul>
-                <li>Designed and implemented the entire Orpasser platform using Laravel, Bootstrap, and MySQL.</li>
-                <li>Developed core business logic for trip creation, booking flows, pricing models and sponsor vs passenger payments.</li>
-                <li>Integrated MTN MoMo Collections and Escrow APIs for secure, automated payments and disbursements.</li>
-                <li>Built responsive, mobile-friendly interfaces and optimized the overall user experience.</li>
-                <li>Managed deployments, server configuration, and continuous updates based on early user feedback.</li>
-                <li>Led product direction, branding, and communication with organizers to refine features.</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Korle Bu -->
-          <article class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3>IT Manager &mdash; Korle Bu Teaching Hospital</h3>
-              <p class="timeline-period">October 2023 &ndash; Present</p>
-              <p class="timeline-summary">
-                Overseeing critical IT operations and supporting digital transformation in one of Ghana’s major hospitals.
-              </p>
-              <ul>
-                <li>Manage hospital IT infrastructure, including networks, servers, workstations, and clinical systems.</li>
-                <li>Support Electronic Health Record (EHR) and related systems, ensuring seamless data flow between units.</li>
-                <li>Implement and monitor cybersecurity measures to protect patient data and sensitive hospital information.</li>
-                <li>Provide technical support to doctors, nurses, and administrative staff for day-to-day clinical operations.</li>
-                <li>Coordinate installation, configuration, and maintenance of medical and administrative software.</li>
-                <li>Design backup, recovery, and uptime strategies to keep critical systems running reliably.</li>
-              </ul>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Research ======= -->
-    <section id="research" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Ongoing Research Projects</h2>
-        </div>
-
-        <div class="cards-grid">
-          <div class="card">
-            <h3>AR/VR for Autistic Patients</h3>
-            <p>
-              Exploring how Augmented and Virtual Reality can be used to improve cognitive intelligence, communication,
-              and emotional recognition in autistic patients.
-            </p>
-            <ul>
-              <li>Designing realistic, controlled virtual environments for practicing real-world interactions.</li>
-              <li>Using AI to adapt difficulty levels and monitor engagement over time.</li>
-              <li>Planning therapist and guardian dashboards for progress tracking.</li>
-            </ul>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Unity/Unreal, Python, OpenCV, VR Headsets, LLM-based assistants</p>
-          </div>
-
-          <div class="card">
-            <h3>Machine Learning for Early Breast Cancer Detection</h3>
-            <p>
-              Building ML models to support early detection and risk prediction for breast cancer using clinical data and
-              imaging features.
-            </p>
-            <ul>
-              <li>Experimenting with classification models for risk estimation.</li>
-              <li>Focusing on model interpretability so doctors can understand predictions.</li>
-              <li>Exploring integration approaches with hospital workflows and systems.</li>
-            </ul>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Python, TensorFlow/PyTorch, Scikit-Learn, Pandas, NumPy</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======= Projects ======= -->
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Featured Projects</h2>
-        </div>
-
-        <div class="cards-grid">
-
-          <div class="card">
-            <h3>3D Medical Visualization for Doctors</h3>
-            <p>
-              A web-based 3D visualization system that allows doctors to explore anatomical structures, rotate organs,
-              zoom into regions of interest, and use visual context to better understand procedures.
-            </p>
-            <ul>
-              <li>Interactive 3D organ models (e.g., appendix, liver, heart).</li>
-              <li>Annotations and labels for key structures and clinical landmarks.</li>
-              <li>Designed to complement learning and pre-procedure planning.</li>
-            </ul>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Three.js / Babylon.js, WebGL, JavaScript, REST API backend</p>
-          </div>
-
-          <div class="card">
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🧠</div>
+          <div>
             <h3>AI Medical Triage</h3>
-            <p>
-              An AI-powered triage system that analyzes patient symptoms and suggests possible conditions with urgency
-              levels to support faster clinical decision-making.
-            </p>
-            <ul>
-              <li>Symptom input interface for capturing patient complaints.</li>
-              <li>AI-based suggestions for potential diagnoses and red flags.</li>
-              <li>Outputs urgency levels such as Emergency, Urgent, or Routine.</li>
-            </ul>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Python (FastAPI), LLM models, MySQL/PostgreSQL, Web frontend (Laravel/React)</p>
+            <p>Clinical decision support · Healthcare</p>
           </div>
+        </div>
+        <div class="project-body">
+          <p>LLM-powered triage system that analyzes patient symptoms and returns potential diagnoses with urgency levels (Emergency / Urgent / Routine) to support faster clinical decisions.</p>
+          <div class="project-stack">
+            <span class="tag strong">Python</span>
+            <span class="tag strong">FastAPI</span>
+            <span class="tag">LLM Models</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Laravel</span>
+          </div>
+          <div class="project-footer">
+            <a href="#contact" class="btn-sm outline"><i class="bx bx-envelope"></i> Request Demo</a>
+          </div>
+        </div>
+      </div>
 
-          <div class="card">
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🫀</div>
+          <div>
+            <h3>3D Medical Visualization</h3>
+            <p>Medical education · Web-based</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Interactive 3D anatomy platform for doctors and medical students. Rotatable organ models with clinical annotations and labels to support pre-procedure planning and medical education.</p>
+          <div class="project-stack">
+            <span class="tag strong">Three.js</span>
+            <span class="tag strong">WebGL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">REST API</span>
+          </div>
+          <div class="project-footer">
+            <a href="#contact" class="btn-sm outline"><i class="bx bx-envelope"></i> Request Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">📄</div>
+          <div>
             <h3>AI Medical Summary</h3>
-            <p>
-              A summarization tool that converts long clinical notes and patient histories into clear, concise summaries
-              formatted for quick review by doctors.
-            </p>
-            <ul>
-              <li>Generates SOAP-style summaries (Subjective, Objective, Assessment, Plan).</li>
-              <li>Highlights key findings, lab abnormalities, and treatment plans.</li>
-              <li>Designed to integrate with hospital systems for case reviews and ward rounds.</li>
-            </ul>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Python, LLM summarization models, REST API, MySQL/MongoDB</p>
+            <p>Clinical notes · SOAP format</p>
           </div>
-
+        </div>
+        <div class="project-body">
+          <p>Converts long clinical notes and patient histories into concise SOAP-format summaries. Highlights key findings, lab abnormalities, and treatment plans for quick review during ward rounds.</p>
+          <div class="project-stack">
+            <span class="tag strong">Python</span>
+            <span class="tag">LLM Summarization</span>
+            <span class="tag">REST API</span>
+            <span class="tag">MongoDB</span>
+          </div>
+          <div class="project-footer">
+            <a href="#contact" class="btn-sm outline"><i class="bx bx-envelope"></i> Request Demo</a>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- ======= Contact ======= -->
-    <section id="contact" class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contact</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-block">
-            <h3>Get in touch</h3>
-            <p>
-              I’m open to collaborations, research opportunities, freelance projects, and roles in software engineering,
-              AI, and healthcare technology.
-            </p>
-          </div>
-          <div class="contact-block contact-details">
-            <ul>
-              <li><i class="bx bx-envelope"></i> <span>Email:</span> brandohhenry@gmail.com</li>
-              <li><i class="bx bx-phone"></i> <span>Phone:</span> +233 57 678 7603</li>
-              <li><i class="bx bxl-twitter"></i> <span>Twitter:</span> @henrybranny</li>
-              <li><i class="bx bxl-linkedin"></i> <span>LinkedIn:</span> Henry Kofi Brandoh</li>
-              <li><i class="bx bxl-facebook"></i> <span>Facebook:</span> Henry Kofi Brandoh</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ======= Footer ======= -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> <strong>Henry Kofi Brandoh</strong>. All rights reserved.</p>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Small JS for mobile nav + year -->
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const siteNav = document.getElementById('siteNav');
-    navToggle.addEventListener('click', () => {
-      siteNav.classList.toggle('nav-open');
-    });
+<!-- ── RESEARCH ── -->
+<section id="research">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Ongoing Research Projects</h2>
+    <div class="divider"></div>
+    <div class="research-grid">
+      <div class="research-card">
+        <span class="research-status">🔬 Ongoing</span>
+        <h3 style="margin-top:1rem">AR/VR Cognitive Training for Autistic Patients</h3>
+        <p>Immersive VR environments designed to improve cognitive development, communication, and social skills in autistic patients. Uses AI to dynamically adapt difficulty and monitor engagement over time.</p>
+        <div class="skill-tags">
+          <span class="tag">Unity/Unreal</span>
+          <span class="tag">Python</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">LLM Assistants</span>
+          <span class="tag">VR Headsets</span>
+        </div>
+      </div>
+      <div class="research-card">
+        <span class="research-status">🔬 Ongoing</span>
+        <h3 style="margin-top:1rem">ML for Early Breast Cancer Detection</h3>
+        <p>Building interpretable machine learning classification models for early breast cancer risk prediction using clinical data and imaging features, with a focus on integration into hospital workflows.</p>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">Pandas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <div class="section-label" style="color:#60A5FA">Get In Touch</div>
+        <h2 class="section-title">Let's work together</h2>
+        <div class="divider"></div>
+        <p class="section-desc">I'm open to remote software engineering roles, healthcare tech collaborations, freelance projects, and research partnerships. Let's talk.</p>
+        <a href="assets/cv/Henry_Kofi_Brandoh_CV.pdf" download class="cv-download">
+          <i class="bx bx-download" style="font-size:1.2rem"></i> Download My CV
+        </a>
+      </div>
+      <div class="contact-items">
+        <a href="mailto:brandohhenry@gmail.com" class="contact-item">
+          <div class="contact-item-icon"><i class="bx bx-envelope"></i></div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-val">brandohhenry@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+233576787603" class="contact-item">
+          <div class="contact-item-icon"><i class="bx bx-phone"></i></div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Phone / WhatsApp</div>
+            <div class="contact-item-val">+233 57 678 7603</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/henry-kofi-brandoh-2964b92a7" target="_blank" class="contact-item">
+          <div class="contact-item-icon"><i class="bx bxl-linkedin"></i></div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">LinkedIn</div>
+            <div class="contact-item-val">Henry Kofi Brandoh</div>
+          </div>
+        </a>
+        <a href="https://twitter.com/henrybranny" target="_blank" class="contact-item">
+          <div class="contact-item-icon"><i class="bx bxl-twitter"></i></div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Twitter / X</div>
+            <div class="contact-item-val">@henrybranny</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Henry Kofi Brandoh — Accra, Ghana 🇬🇭</p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('hamburger').addEventListener('click', () => {
+    const nav = document.querySelector('.nav-links');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
 </body>
 </html>

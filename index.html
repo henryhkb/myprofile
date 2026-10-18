@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Henry Kofi Brandoh | Software Engineer & Healthcare Tech</title>
+  <title>Henry Kofi Brandoh | Health AI & Fintech Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --blue: #1A56DB;
       --blue-light: #EBF4FF;
@@ -344,6 +344,13 @@
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .projects-grid, .research-grid { grid-template-columns: 1fr; }
       .nav-links, .nav-cta { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; gap: 0;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: white; border-bottom: 1px solid var(--border);
+        padding: 0.5rem 2rem 1rem;
+      }
+      .nav-links.open a { display: block; padding: 0.6rem 0; }
       .hamburger { display: block; }
       .stats-row { grid-template-columns: repeat(3, 1fr); }
     }
@@ -377,10 +384,10 @@
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-tag">🇬🇭 Software Engineer · IT Manager · AI Researcher</div>
-      <h1>Building tech that <span>matters</span> for healthcare & beyond</h1>
+      <div class="hero-tag">🇬🇭 Software Engineer · Health AI · Fintech</div>
+      <h1>Building AI that <span>matters</span> for health & finance</h1>
       <p class="hero-desc">
-        I'm Henry — a software engineer and IT Manager at Korle Bu Teaching Hospital, Ghana's premier referral hospital. I build scalable web platforms, manage mission-critical systems, and research AI applications in medicine.
+        I'm Henry — a software engineer and MPhil researcher in Intelligent Computing Systems at Ashesi University. I build AI that tackles healthcare challenges in Africa, and secure financial technology that makes payments simpler and more accessible.
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View My Work</a>
@@ -391,10 +398,10 @@
     <div class="hero-card">
       <div class="hero-card-avatar">H</div>
       <h2>Henry Kofi Brandoh</h2>
-      <p>IT Manager at Korle Bu Teaching Hospital · Founder of Orpasser · AI & Healthcare Technology Researcher</p>
+      <p>MPhil Researcher, Ashesi University · Founder of Orpasser · Former IT Manager, National Cardiothoracic Centre (KBTH)</p>
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-num">5</div>
+          <div class="stat-num">6+</div>
           <div class="stat-label">Years Exp</div>
         </div>
         <div class="stat">
@@ -402,7 +409,7 @@
           <div class="stat-label">Projects</div>
         </div>
         <div class="stat">
-          <div class="stat-num">2</div>
+          <div class="stat-num">3</div>
           <div class="stat-label">Research</div>
         </div>
       </div>
@@ -422,24 +429,25 @@
     <div class="about-grid">
       <div class="about-text">
         <div class="section-label">About Me</div>
-        <h2 class="section-title">I build systems that people depend on</h2>
+        <h2 class="section-title">I build AI and systems people can depend on</h2>
         <div class="divider"></div>
-        <p>I'm a software engineer and IT Manager based in Accra, Ghana, with hands-on experience building real-world systems in healthcare, transport, and education. My day job is managing the IT infrastructure of <strong>Korle Bu Teaching Hospital</strong> — one of Ghana's largest and most critical hospitals.</p>
-        <p>On the product side, I founded <strong>Orpasser</strong>, a live web platform that connects trip organizers and travelers for group bus trips across Ghana, with full MTN MoMo payment integration.</p>
-        <p>I'm passionate about applying AI and machine learning to solve healthcare challenges — from early cancer detection to medical triage systems. I believe technology should create real, measurable impact.</p>
+        <p>I'm a software engineer and AI/ML researcher based in Accra, Ghana, currently pursuing an <strong>MPhil in Intelligent Computing Systems at Ashesi University</strong>. Before that, I was the IT Manager at the <strong>National Cardiothoracic Centre, Korle Bu Teaching Hospital</strong>, where I saw first-hand how much better tools could help clinicians and patients.</p>
+        <p><strong>Health AI:</strong> many hospitals in Ghana have the equipment to run tests but too few specialists to interpret them. I build AI that helps close that gap — from detecting atrial fibrillation on ECGs to early cancer risk prediction and medical triage.</p>
+        <p><strong>Fintech:</strong> as founder of <strong>Orpasser</strong>, a live group-travel platform, I built secure payment flows with MTN MoMo Collections and escrow. I'm interested in how software and machine learning can widen access to financial services across Africa.</p>
+        <p>I believe technology should create real, measurable impact — and be built safely, with the people who use it.</p>
       </div>
       <div>
         <div class="info-card">
           <h3>Quick Info</h3>
           <ul class="info-list">
             <li><span class="label">Location</span><span class="val">Accra, Ghana 🇬🇭</span></li>
-            <li><span class="label">Current Role</span><span class="val">IT Manager, Korle Bu Teaching Hospital</span></li>
+            <li><span class="label">Current Role</span><span class="val">MPhil Researcher, Ashesi University</span></li>
             <li><span class="label">Startup</span><span class="val">Founder & CEO, Orpasser</span></li>
-            <li><span class="label">Focus</span><span class="val">Web Apps, AI for Healthcare, IT Infrastructure</span></li>
+            <li><span class="label">Focus</span><span class="val">Health AI, Fintech, Secure Web Platforms</span></li>
             <li><span class="label">Email</span><span class="val">brandohhenry@gmail.com</span></li>
             <li>
               <span class="label">Status</span>
-              <span class="available-badge"><span class="available-dot"></span> Open to Remote Roles</span>
+              <span class="available-badge"><span class="available-dot"></span> Open to Remote Roles & Research</span>
             </li>
           </ul>
         </div>
@@ -499,14 +507,14 @@
         <div class="skill-tags">
           <span class="tag">JavaScript</span>
           <span class="tag">jQuery</span>
-          <span class="tag">React (Beginner)</span>
+          <span class="tag">React</span>
           <span class="tag">Three.js</span>
           <span class="tag">WebGL</span>
         </div>
       </div>
       <div class="skill-card">
         <div class="skill-icon"><i class="bx bx-credit-card"></i></div>
-        <h3>Integrations & APIs</h3>
+        <h3>Fintech & Integrations</h3>
         <div class="skill-tags">
           <span class="tag strong">MTN MoMo API</span>
           <span class="tag">SMS/Email Automation</span>
@@ -541,17 +549,32 @@
         <div class="timeline-dot"></div>
         <div class="timeline-card">
           <div class="tl-header">
-            <div class="tl-title">IT Manager</div>
-            <span class="tl-period">Oct 2020 – Present</span>
+            <div class="tl-title">MPhil, Intelligent Computing Systems</div>
+            <span class="tl-period">Sep 2026 – Present</span>
           </div>
-          <div class="tl-org">Korle Bu Teaching Hospital — Accra, Ghana</div>
-          <p class="tl-desc">Managing mission-critical IT infrastructure at Ghana's premier referral hospital, serving thousands of patients and hundreds of clinical staff daily.</p>
+          <div class="tl-org">Ashesi University — Ghana</div>
+          <p class="tl-desc">Graduate research in intelligent computing systems, focused on AI for healthcare in low-resource settings.</p>
           <ul class="tl-list">
-            <li>Manage hospital-wide IT infrastructure: servers, switches, Wi-Fi, workstations across wards, theatres, and OPD units</li>
+            <li>Building ECG-Vision, a computer vision project to detect atrial fibrillation from photos of paper ECGs</li>
+            <li>Exploring medical image and signal analysis, and responsible evaluation of clinical AI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">IT Manager</div>
+            <span class="tl-period">Oct 2020 – 2026</span>
+          </div>
+          <div class="tl-org">National Cardiothoracic Centre, Korle Bu Teaching Hospital — Accra, Ghana</div>
+          <p class="tl-desc">Managed mission-critical IT infrastructure at Ghana's premier referral hospital, serving thousands of patients and hundreds of clinical staff daily.</p>
+          <ul class="tl-list">
+            <li>Managed hospital-wide IT infrastructure: servers, switches, Wi-Fi, workstations across wards, theatres, and OPD units</li>
             <li>Built an internal Letter Tracking System eliminating manual paper workflows across all departments</li>
-            <li>Implement cybersecurity controls, access management, and backup strategies to protect sensitive patient data</li>
-            <li>Coordinate with government health IT teams and EHR vendors on system updates and compliance</li>
-            <li>Train medical and admin staff on digital systems, accelerating hospital-wide digital transformation</li>
+            <li>Implemented cybersecurity controls, access management, and backup strategies to protect sensitive patient data</li>
+            <li>Coordinated with government health IT teams and EHR vendors on system updates and compliance</li>
+            <li>Trained medical and admin staff on digital systems, accelerating hospital-wide digital transformation</li>
           </ul>
         </div>
       </div>
@@ -586,14 +609,37 @@
 
       <div class="project-card">
         <div class="project-top">
-          <div class="project-icon">🚌</div>
+          <div class="project-icon">🫀</div>
           <div>
-            <h3>Orpasser</h3>
-            <p>Live transport platform · Ghana</p>
+            <h3>ECG-Vision</h3>
+            <p>Health AI · Computer vision</p>
           </div>
         </div>
         <div class="project-body">
-          <p>A live web platform connecting trip organizers and travelers for group bus trips. Includes full booking flows, dynamic pricing, MTN MoMo payment integration, QR ticketing, and SMS/Email notifications.</p>
+          <p>Detects atrial fibrillation from photos of paper ECGs, aimed at hospitals where cardiologists are scarce. Built on the PTB-XL dataset with 9,718 labelled ECGs, patient-safe data splits, and evaluation focused on sensitivity and specificity.</p>
+          <div class="project-stack">
+            <span class="tag strong">Python</span>
+            <span class="tag strong">Computer Vision</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">WFDB</span>
+            <span class="tag">Google Colab</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/henryhkb/ecg-vision-app" target="_blank" class="btn-sm filled"><i class="bx bxl-github"></i> View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🚌</div>
+          <div>
+            <h3>Orpasser</h3>
+            <p>Fintech &amp; transport platform · Ghana</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>A live, revenue-generating platform for group bus trips across Ghana. Handles secure payments through MTN MoMo Collections and escrow, plus booking flows, dynamic pricing, QR ticketing, and SMS/Email notifications.</p>
           <div class="project-stack">
             <span class="tag strong">Laravel</span>
             <span class="tag strong">MTN MoMo API</span>
@@ -632,7 +678,7 @@
 
       <div class="project-card">
         <div class="project-top">
-          <div class="project-icon">🫀</div>
+          <div class="project-icon">🩺</div>
           <div>
             <h3>3D Medical Visualization</h3>
             <p>Medical education · Web-based</p>
@@ -682,7 +728,7 @@
 <section id="research">
   <div class="container">
     <div class="section-label">Research</div>
-    <h2 class="section-title">Ongoing Research Projects</h2>
+    <h2 class="section-title">Research &amp; Focus Areas</h2>
     <div class="divider"></div>
     <div class="research-grid">
       <div class="research-card">
@@ -709,6 +755,17 @@
           <span class="tag">Pandas</span>
         </div>
       </div>
+      <div class="research-card">
+        <span class="research-status">🧭 Exploring</span>
+        <h3 style="margin-top:1rem">Machine Learning for Financial Inclusion</h3>
+        <p>Exploring how digital payments, mobile money and machine learning can widen access to financial services in Africa — including risk assessment and fraud detection for underserved users and small businesses.</p>
+        <div class="skill-tags">
+          <span class="tag">Mobile Money</span>
+          <span class="tag">Python</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Fraud Detection</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -721,8 +778,8 @@
         <div class="section-label" style="color:#60A5FA">Get In Touch</div>
         <h2 class="section-title">Let's work together</h2>
         <div class="divider"></div>
-        <p class="section-desc">I'm open to remote software engineering roles, healthcare tech collaborations, freelance projects, and research partnerships. Let's talk.</p>
-        <a href="assets/cv/Henry_Kofi_Brandoh_CV.pdf" download class="cv-download">
+        <p class="section-desc">I'm open to remote roles, health AI and fintech collaborations, research partnerships, and freelance projects. If you're building something impactful in health or finance, let's talk.</p>
+        <a href="assets/resume/HenryKofiBrandohResume.pdf" download class="cv-download">
           <i class="bx bx-download" style="font-size:1.2rem"></i> Download My CV
         </a>
       </div>
@@ -767,11 +824,11 @@
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   document.getElementById('hamburger').addEventListener('click', () => {
-    const nav = document.querySelector('.nav-links');
-    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    document.querySelector('.nav-links').classList.toggle('open');
   });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
 </script>
 </body>
 </html>
-
 

@@ -563,7 +563,7 @@
           <p class="tl-desc">Graduate research in intelligent computing systems, focused on trustworthy AI for low-resource healthcare settings. Expected completion Sep 2028.</p>
           <ul class="tl-list">
             <li>Thesis: predicting pulmonary embolism risk in asymptomatic individuals (Supervisor: Prof. Martin Nartey-Tamatey)</li>
-            <li>Building ECG-Vision, a computer vision project to detect atrial fibrillation from photos of paper ECGs</li>
+            <li>Built ECG-Vision, a deep learning model that detects atrial fibrillation from ECG images (test F1 0.967), made robust to photo-like images through data augmentation</li>
             <li>Building n-gram language models for Twi (Akan), a low-resource Ghanaian language</li>
           </ul>
         </div>
@@ -647,12 +647,13 @@
           </div>
         </div>
         <div class="project-body">
-          <p>Detects atrial fibrillation from photos of paper ECGs, aimed at hospitals where cardiologists are scarce. Built on the PTB-XL dataset with 9,718 labelled ECGs, patient-safe data splits, and evaluation focused on sensitivity and specificity.</p>
+          <p>Detects atrial fibrillation from images of 12-lead ECGs, aimed at hospitals where cardiologists are scarce. A fine-tuned ResNet-18 trained on 9,718 PTB-XL ECGs reached test F1 0.967 (vs 0.800 for a heart-rhythm rule). A robustness test showed it failed on blurred and tilted images; retraining with photo-like augmentation raised F1 on those from 0.27–0.52 to 0.92–0.96. Validated further with a cardiologist's blind review and a first test on 36 iPhone photos (F1 0.94–0.97).</p>
           <div class="project-stack">
-            <span class="tag strong">Python</span>
+            <span class="tag strong">PyTorch</span>
             <span class="tag strong">Computer Vision</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">WFDB</span>
+            <span class="tag">ResNet-18</span>
+            <span class="tag">Data Augmentation</span>
+            <span class="tag">PTB-XL</span>
             <span class="tag">Google Colab</span>
           </div>
           <div class="project-footer">

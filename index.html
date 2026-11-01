@@ -180,6 +180,23 @@
     footer { background: var(--ink); color: #8792A8; font-family: var(--sans); font-size: .82rem; padding: 0 0 2.5rem; }
     footer .wrap { border-top: 1px solid #2A3654; padding-top: 1.5rem; }
 
+
+    /* Faint dev icons in the side margins (wide screens only) */
+    .margin-icons { display: none; }
+    @media (min-width: 1340px) {
+      .margin-icons { display: block; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+      .margin-icons i {
+        position: absolute; width: var(--s); height: var(--s);
+        background: var(--indigo); opacity: .11;
+        -webkit-mask: var(--u) center / contain no-repeat; mask: var(--u) center / contain no-repeat;
+        transform: rotate(var(--r));
+        animation: drift 14s ease-in-out infinite alternate;
+        animation-delay: var(--d);
+      }
+    }
+    @keyframes drift { from { translate: 0 0; } to { translate: 0 -14px; } }
+    @media (prefers-reduced-motion: reduce) { .margin-icons i { animation: none; } }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -212,6 +229,21 @@
   </style>
 </head>
 <body>
+  <div class="margin-icons" aria-hidden="true">
+    <i style="--u:url(assets/img/dev/python.svg);--s:52px;--r:-8deg;--d:-0.0s;top:8%;left:4%"></i>
+    <i style="--u:url(assets/img/dev/pytorch.svg);--s:44px;--r:6deg;--d:-1.7s;top:24%;left:7%"></i>
+    <i style="--u:url(assets/img/dev/jupyter.svg);--s:40px;--r:-4deg;--d:-3.4s;top:41%;left:3%"></i>
+    <i style="--u:url(assets/img/dev/numpy.svg);--s:46px;--r:10deg;--d:-5.1s;top:57%;left:6.5%"></i>
+    <i style="--u:url(assets/img/dev/tensorflow.svg);--s:48px;--r:-6deg;--d:-6.8s;top:74%;left:3.5%"></i>
+    <i style="--u:url(assets/img/dev/opencv.svg);--s:40px;--r:4deg;--d:-8.5s;top:90%;left:7%"></i>
+    <i style="--u:url(assets/img/dev/scikitlearn.svg);--s:56px;--r:5deg;--d:-10.2s;top:10%;right:4.5%"></i>
+    <i style="--u:url(assets/img/dev/pandas.svg);--s:42px;--r:-10deg;--d:-11.9s;top:27%;right:2.5%"></i>
+    <i style="--u:url(assets/img/dev/fastapi.svg);--s:44px;--r:8deg;--d:-13.6s;top:44%;right:6%"></i>
+    <i style="--u:url(assets/img/dev/laravel.svg);--s:48px;--r:-5deg;--d:-15.3s;top:60%;right:3%"></i>
+    <i style="--u:url(assets/img/dev/react.svg);--s:46px;--r:12deg;--d:-17.0s;top:77%;right:6.5%"></i>
+    <i style="--u:url(assets/img/dev/github.svg);--s:40px;--r:-3deg;--d:-18.7s;top:92%;right:3.5%"></i>
+  </div>
+
   <a class="skip" href="#main">Skip to content</a>
 
   <nav class="nav" aria-label="Main">
@@ -513,7 +545,7 @@
       var svg = document.getElementById('ecg');
       var NS = 'http://www.w3.org/2000/svg';
       var base = 58, d = 'M0 ' + base, x = 0, beat = 170;
-      while (x < 1200) {
+      while (x + beat <= 1200) {
         var s = x;
         d += ' L' + (s + 30) + ' ' + base +
              ' Q' + (s + 38) + ' ' + (base - 9) + ' ' + (s + 46) + ' ' + base +
@@ -527,6 +559,7 @@
              ' L' + (s + beat) + ' ' + base;
         x += beat;
       }
+      d += ' L1200 ' + base;
       function path(cls) {
         var p = document.createElementNS(NS, 'path');
         p.setAttribute('d', d); p.setAttribute('class', cls);
